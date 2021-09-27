@@ -22,9 +22,9 @@ Users should be able to:
 
 ### Screenshot
 
-![https://i.imgur.com/9yrN7Bm.png]
-![https://i.imgur.com/dQGWnhP.png]
-![https://i.imgur.com/zxB8348.png]
+![Desktop view](https://i.imgur.com/9yrN7Bm.png)
+![Tablet view](https://i.imgur.com/dQGWnhP.png)
+![Mobile view](https://i.imgur.com/zxB8348.png)
 
 
 ### Links
