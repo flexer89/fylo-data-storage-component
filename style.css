@@ -1,0 +1,244 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+    --dark-blue: hsl(228, 56%, 26%);
+    --gradient: hsl(6, 100%, 80%), hsl(335, 100%, 65%);
+    --gray-blue: hsl(229, 7%, 55%);
+    --pale-blue: hsl(243, 100%, 93%);
+    --very-dark-blue: hsl(229, 57%, 11%);
+}
+
+body {
+    background-color: var(--very-dark-blue);
+    background-image: url(images/bg-desktop.png);
+    background-position: 0 120%;
+    background-repeat: no-repeat;
+    background-size: 100% 60%;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* -----------------------Section styling--------------------- */
+.container {
+    align-items: flex-end;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+.hylo,
+.storage {
+    background-color: var(--dark-blue);
+    padding: 2.4rem;
+}
+
+/* -------------Hylo--------------- */
+.hylo {
+    animation: slide-in-left 0.5s 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    border-radius: 1rem 7rem 1rem 1rem;
+    min-width: 25rem;
+}
+
+.icon-container {
+    display: flex;
+}
+
+.icon-container img {
+    background-color: var(--very-dark-blue);
+    border-radius: 0.75rem;
+    margin-right: 1rem;
+    padding: 1rem;
+}
+
+.logo {
+    margin-bottom: 2.4rem;
+}
+
+/* ---------------Storage------------- */
+.storage {
+    animation: slide-in-right 0.5s 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    border-radius: 1rem;
+    margin-left: 2rem;
+    min-width: 40rem;
+    position: relative;
+}
+
+.storage p {
+    color: var(--pale-blue);
+    opacity: 0.8;
+}
+
+.storage span {
+    color: #fff;
+    font-weight: 700;
+}
+
+.line {
+    background-color: var(--very-dark-blue);
+    border: 2px solid var(--very-dark-blue);
+    border-radius: 1rem;
+    height: 1.3rem;
+    margin: 1rem 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.line::before {
+    background-color: #fff;
+    border-radius: 50%;
+    content: "";
+    height: 0.85rem;
+    position: absolute;
+    right: 18.5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.85rem;
+    z-index: 213;
+
+}
+
+.line::after {
+    background-image: linear-gradient(90deg, var(--gradient));
+    border-radius: 1rem;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 81.5%;
+}
+
+.line-description {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.notification {
+    background-color: #fff;
+    border-radius: 0.75rem;
+    display: inline-block;
+    position: absolute;
+    padding: 1rem 1.25rem;
+    right: 3rem;
+    top: -50%;
+    transform: translateY(50%);
+    z-index: 213;
+}
+
+.notification::after {
+    border-bottom: 2rem solid transparent;
+    border-right: 1.5rem solid #fff;
+    border-top: 2rem solid transparent;
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+.notification p {
+    align-items: center;
+    color: var(--gray-blue);
+    display: flex;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.notification span {
+    color: var(--very-dark-blue);
+    font-size: 2.7rem;
+    padding-right: 0.5rem;
+}
+
+/* -------------------------Media Queries----------------------- */
+@media screen and (max-width:1000px) {
+    :root {
+        font-size: 13px;
+    }
+
+    .container {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .hylo,
+    .storage {
+        margin: 0.5rem;
+    }
+
+    .storage {
+        margin-left: 0.5rem;
+        min-width: 25rem;
+    }
+
+    .notification {
+        left: 50%;
+        right: auto;
+        top: 100%;
+        transform: translate(-50%, -50%);
+    }
+
+    .notification::after {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 350px) {
+    :root {
+        font-size: 12px;
+    }
+
+    body {
+        background-image: url(images/bg-mobile.png);
+        background-position: 0 0;
+        background-size: cover;
+    }
+
+    .hylo,
+    .storage {
+        min-width: 100%;
+    }
+
+    .notification {
+        transform: translate(-50%, -30%);
+    }
+}
+
+/* --------------------------------Animations-------------------------- */
+
+@keyframes slide-in-left {
+    0% {
+        transform: translateX(-1000px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-right {
+    0% {
+        transform: translateX(1000px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
